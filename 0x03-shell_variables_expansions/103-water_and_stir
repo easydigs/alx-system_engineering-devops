@@ -1,2 +1,2 @@
 #!/bin/bash
-BASE_BESTCHOL=$(echo "obase=bestchol; ibase=10; $SUM" | bc)
+BASE_BESTCHOL=$(($WATER $SUM $STIR))
