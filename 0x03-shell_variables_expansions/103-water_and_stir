@@ -1,2 +1,2 @@
 #!/bin/bash
-base_bestchol=$(($water $SUM $stir))
+echo base_bestchoil=$(($water $SUM $stir))
