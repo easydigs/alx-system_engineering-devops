@@ -1,2 +1,2 @@
 #!/bin/bash
-find ./ -name -empty | wc -l
+find . -empty -type f -o -empty -type d -printf '%f\n'
