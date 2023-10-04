@@ -1,2 +1,2 @@
 #!/bin/bash
-echo "Usage: $0 <input_file>"
+paste -d, - - | cut -d, -f1
