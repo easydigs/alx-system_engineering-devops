@@ -1,0 +1,41 @@
+#!/usr/bin/env bash
+# configuring web-01 to have HTTP response header
+
+# Updating packages
+echo -e "Updating and installing Nginx.\n"
+sudo apt-get update -y -qq && \
+	 sudo apt-get install nginx -y
+
+echo -e "\nSetting up some minor stuff.\n"
+
+# start nginx
+sudo service nginx start
+
+sudo ufw allow 'Nginx HTTP'
+
+sudo chown -R "$USER":"$USER" /var/www/html
+sudo chmod -R 755 /var/www
+
+# creating an index page
+cp /var/www/html/index.nginx-debian.html /var/www/html/index.nginx-debian.html.bckp
+
+echo -e "Hello World!" > /var/www/html/index.nginx-debian.html
+
+# performing a redirection
+sudo sed -i '24i\	rewrite ^/redirect_me https://github.com/easydigs?tab=repositories permanent;' /etc/nginx/sites-available/default
+
+# Creatinga custom error page
+echo "Ceci n'est pas une page" >> /var/www/html/error_404.html
+sudo sed -i '25i\	error_page 404 /error_404.html;' /etc/nginx/sites-available/default
+
+# Custom HTTP response header
+sudo sed -i "/server_name _/a add_header X-Served-By $HOSTNAME;" /et    c/nginx/sites-enabled/default
+
+# test for syntax errors
+sudo nginx -t
+
+# Restart nginx
+sudo service nginx restart
+
+# complete
+echo -e "\nCompleted.\n"
