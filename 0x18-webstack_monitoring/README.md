@@ -3,7 +3,7 @@
 ## Monitoring 
 ## Server
 
-https://s3.amazonaws.com/intranet-projects-files/holbertonschool-sysadmin_devops/281/hb3pAsO.png
+![Preview](https://s3.amazonaws.com/intranet-projects-files/holbertonschool-sysadmin_devops/281/hb3pAsO.png)
 
 
 # Background Context
