@@ -9,6 +9,6 @@ exec {'increase-hard-file-limit-forholberton-user':
 
 # increase soft file limit for holberton user.
 exec {'increase-soft-file-limit-forholberton-user':
-  command => 'sed -i "/^holberton hard/s/4/50000/" /etc/security/limits.conf',
+  command => 'sed -i "/^holberton soft/s/4/50000/" /etc/security/limits.conf',
   path    => '/usr/local/bin/:/bin/:/bin/'
 }
