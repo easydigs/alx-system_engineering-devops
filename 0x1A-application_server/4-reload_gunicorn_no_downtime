@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# forcefully reloads gunicorn.
+
+pgrep gunicorn | xarge kill -HUP
